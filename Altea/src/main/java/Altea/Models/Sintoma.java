@@ -1,14 +1,14 @@
 package Altea.Models;
 
-public class RespChat {
+public class Sintoma {
     private Long id;
+    private String Nombre;
     private String Descripcion;
-    private Long id_chatbot;
 
-    public RespChat(Long id, String Descripcion, Long id_chatbot){
+    public Sintoma(Long id, String Nombre, String Descripcion){
         this.id = id;
+        this.Nombre = Nombre;
         this.Descripcion = Descripcion;
-        this.id_chatbot = id_chatbot;
     }
 
     public Long getId() {
@@ -19,6 +19,14 @@ public class RespChat {
         this.id = id;
     }
 
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
     public String getDescripcion() {
         return Descripcion;
     }
@@ -27,12 +35,4 @@ public class RespChat {
         this.Descripcion = Descripcion;
     }
 
-    public Long getId_chatbot() {
-        return this.id_chatbot;
-    }
-
-    public void setId_chatbot(Long id_chatbot) {
-        this.id_chatbot = id_chatbot;
-    }
-    
 }
