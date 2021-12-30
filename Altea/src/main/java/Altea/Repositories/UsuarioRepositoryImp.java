@@ -82,7 +82,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
 
     @Override
     public Usuario getUsuario(long id){
-		String sql = "select ID AS ID, Nombre AS Nombre, Apellido AS Apellido, edad AS Edad, Correo AS E-mail, Contrasenia AS Contraseña, loginToken AS LoginToken, id_chatbot AS id_chatbot from Usuario where ID=:id";
+		String sql = "SELECT *  from Usuario where ID=:id";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
 				.addParameter("id", id)
