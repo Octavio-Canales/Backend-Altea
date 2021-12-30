@@ -79,7 +79,7 @@ public class EmpresaRepositoryImp implements EmpresaRepository {
 
     @Override
     public Empresa getEmpresa(long id){
-		String sql = "select ID AS ID, Nombre AS Nombre, Correo AS Correo, Contrasenia AS Contrasenia, loginToken AS LoginToken from Empresa where ID=:id";
+		String sql = "SELECT * from Empresa where ID=:id";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
 				.addParameter("id", id)
