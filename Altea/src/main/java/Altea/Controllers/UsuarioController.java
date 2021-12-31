@@ -25,6 +25,11 @@ public class UsuarioController {
         return usuarioRepository.getAllUsuario();
     }
 
+    @GetMapping("/usuarios/{Correo}/{Contrasenia}")
+    public Usuario Login2(@PathVariable (value = "Correo") String corr, @PathVariable (value = "Contrasenia") String contra){
+        return usuarioRepository.Login2(corr, contra);
+    }
+
     @GetMapping("/usuarios/{id}")
     public Usuario getUsuario(@PathVariable(value="id") Long id){
         return usuarioRepository.getUsuario(id);

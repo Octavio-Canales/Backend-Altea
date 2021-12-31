@@ -68,6 +68,27 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
+    public Usuario Login2(String corr, String contra) {
+        try(Connection conn = sql2o.open()){
+            Usuario v1 = conn.createQuery("SELECT * FROM Usuario WHERE Correo = :corr AND Contrasenia = :contra")
+            .addParameter("corr",corr)
+            .addParameter("contra",contra)
+            .executeAndFetchFirst(Usuario.class);
+            if (v1 != null){
+                return v1;  
+            }else{
+                return null;
+            }
+
+      
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+        
+    }
+
+    @Override
     public boolean deleteUsuario(long id){
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE FROM Usuario WHERE ID = :id")

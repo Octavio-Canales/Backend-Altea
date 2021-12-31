@@ -13,4 +13,5 @@ public interface UsuarioRepository {
     public Usuario getUserByToken(String token);
     public Usuario logIn(Usuario user);
     public String logOut(Usuario user);
+    public Usuario Login2(String corr, String contra);
 }
