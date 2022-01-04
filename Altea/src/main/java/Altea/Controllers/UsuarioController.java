@@ -36,8 +36,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/usuarios")
-    public Usuario createUsuario(@RequestBody Usuario usuario){
-        return usuarioRepository.createUsuario(usuario);
+    public Usuario createUsuario2(@RequestBody Usuario usuario){
+        return usuarioRepository.createUsuario2(usuario);
     }
 
     @DeleteMapping("/usuario/{id}")

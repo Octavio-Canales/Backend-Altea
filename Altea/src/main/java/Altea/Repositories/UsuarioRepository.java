@@ -6,7 +6,6 @@ import Altea.Models.Usuario;
 public interface UsuarioRepository {
     public int countUsuario();
     public List<Usuario> getAllUsuario();
-    public Usuario createUsuario(Usuario usuario);
     public boolean deleteUsuario(long id);
     public Usuario getUsuario(long id);
     public boolean updateUsuario(Usuario nuevoUsuario);
@@ -14,4 +13,5 @@ public interface UsuarioRepository {
     public Usuario logIn(Usuario user);
     public String logOut(Usuario user);
     public Usuario Login2(String corr, String contra);
+    public Usuario createUsuario2(Usuario Usuario);
 }

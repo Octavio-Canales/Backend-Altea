@@ -35,37 +35,32 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
             return null;
         }
     }
-
     @Override
-    public Usuario createUsuario(Usuario Usuario) {
+    public Usuario createUsuario2(Usuario Usuario) {
         try(Connection conn = sql2o.open()){
-            Usuario v1 = conn.createQuery("select * from Usuario where Correo=:Correo").addParameter("Correo",Usuario.getCorreo()).executeAndFetchFirst(Usuario.class);
-            if (v1 == null){
-                int insertedId = countUsuario()+1;
-                conn.createQuery("insert into Usuario (ID, Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot)"+
-                        " values (:id, :Nombre, :Apellido, :edad, :Correo, :Contrasenia, :id_chatbot)") 
-                        .addParameter("id",  insertedId)                
+            Usuario confirmar = conn.createQuery("select * from Usuario where Correo=:Correo").addParameter("Correo",Usuario.getCorreo()).executeAndFetchFirst(Usuario.class);
+            if(confirmar == null){
+                int insertedId = (int) conn.createQuery("INSERT INTO Usuario ( Nombre, Apellido, edad, Correo, Contrasenia, loginToken, id_chatbot) values (:Nombre, :Apellido, :edad, :Correo, :Contrasenia, :loginToken, :id_chatbot)", true)
                         .addParameter("Nombre", Usuario.getNombre())
                         .addParameter("Apellido", Usuario.getApellido())
                         .addParameter("edad", Usuario.getEdad())
                         .addParameter("Correo", Usuario.getCorreo())
                         .addParameter("Contrasenia", Usuario.getContrasenia())
-                        .addParameter("loginToken", 0)
-                        .addParameter("id_chatbot", Usuario.getId_chatbot())
+                        .addParameter("loginToken", 1)
+                        .addParameter("id_chatbot", 1)
                         .executeUpdate().getKey();
                 Usuario.setId(insertedId);
-                return Usuario;  
+                return Usuario;
             }else{
                 return null;
-            }
-
-      
+            }        
         }catch(Exception e){
             System.out.println(e.getMessage());
             return null;
         }
         
     }
+ 
 
     @Override
     public Usuario Login2(String corr, String contra) {

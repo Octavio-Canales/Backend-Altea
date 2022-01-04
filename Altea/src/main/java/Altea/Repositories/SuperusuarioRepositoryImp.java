@@ -80,7 +80,7 @@ public class SuperusuarioRepositoryImp implements SuperusuarioRepository {
 
     @Override
     public Superusuario getSuperusuario(long id){
-		String sql = "select ID AS ID, Nombre AS Nombre, Apellido AS Apellido, Correo AS Correo, Contrasenia AS Contrasenia, loginToken AS LoginToken from Superusuario where ID=:ID";
+		String sql = "SELECT * from Superusuario where ID=:ID";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
 				.addParameter("ID", id)

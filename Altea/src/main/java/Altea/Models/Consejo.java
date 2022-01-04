@@ -5,14 +5,6 @@ public class Consejo {
     private String Nombre;
     private String Descripcion;
 
-    public Consejo(){}
-
-    public Consejo(Long id, String Nombre, String Descripcion){
-        this.id = id;
-        this.Nombre = Nombre;
-        this.Descripcion = Descripcion;
-    }
-
     public Long getId() {
         return id;
     }

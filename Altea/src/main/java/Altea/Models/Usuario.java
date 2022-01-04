@@ -1,7 +1,7 @@
 package Altea.Models;
 
 public class Usuario {
-    private Long id;
+    private int id;
     private String Nombre;
     private String Apellido;
     private String Correo;
@@ -10,22 +10,11 @@ public class Usuario {
     private int loginToken;
     private Long id_chatbot;
 
-    public Usuario(Long id, String Nombre, String Apellido, int Edad, String Correo, String Contrasenia, int loginToken, Long id_chatbot){
-        this.id = id;
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.Edad = Edad;
-        this.Correo = Correo;
-        this.Contrasenia = Contrasenia;
-        this.loginToken = loginToken;
-        this.id_chatbot = id_chatbot;
-    }
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long insertedId) {
+    public void setId(int insertedId) {
         this.id = insertedId;
     }
 
