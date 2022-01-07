@@ -1,27 +1,19 @@
 package Altea.Models;
 
 public class Superusuario {
-    private Long id;
+    private int id;
     private String Nombre;
     private String Apellido;
     private String Correo;
     private String Contrasenia;
     private int loginToken;
 
-    public Superusuario(Long id, String Nombre, String Apellido, String Correo, String Contrasenia, int loginToken){
-        this.id = id;
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.Correo = Correo;
-        this.Contrasenia = Contrasenia;
-        this.loginToken = loginToken;
-    }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

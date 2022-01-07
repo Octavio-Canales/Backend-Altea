@@ -31,6 +31,11 @@ public class EmpresaController {
         return empresaRepository.getEmpresa(id);
     }
 
+    @GetMapping("/empresas/{Correo}/{Contrasenia}")
+    public Empresa Login2(@PathVariable (value = "Correo") String corr, @PathVariable (value = "Contrasenia") String contra){
+        return empresaRepository.Login2(corr, contra);
+    }
+
     @PostMapping("/empresas")
     public Empresa createEmpresa(@RequestBody Empresa empresa){
         return empresaRepository.createEmpresa(empresa);

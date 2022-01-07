@@ -13,4 +13,5 @@ public interface EmpresaRepository {
     public Empresa getUserByToken(String token);
     public Empresa logIn(Empresa user);
     public String logOut(Empresa user);
+    public Empresa Login2(String corr, String contra);
 }

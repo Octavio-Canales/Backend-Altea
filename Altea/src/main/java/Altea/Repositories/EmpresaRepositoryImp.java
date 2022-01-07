@@ -41,7 +41,7 @@ public class EmpresaRepositoryImp implements EmpresaRepository {
         try(Connection conn = sql2o.open()){
             Empresa v1 = conn.createQuery("select * from Empresa where Correo=:Correo").addParameter("Correo",empresa.getCorreo()).executeAndFetchFirst(Empresa.class);
             if (v1 == null){
-                long insertedId = countEmpresa()+1;
+                int insertedId = countEmpresa()+1;
                 conn.createQuery("insert into Empresa (ID, Nombre, Correo, Contrasenia, loginToken)"+
                         " values (:id, :EmpresaNombre, :correo, :pass)") 
                         .addParameter("id",  insertedId)                
@@ -52,6 +52,27 @@ public class EmpresaRepositoryImp implements EmpresaRepository {
                         .executeUpdate().getKey();
                 empresa.setId(insertedId);
                 return empresa;  
+            }else{
+                return null;
+            }
+
+      
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+        
+    }
+
+    @Override
+    public Empresa Login2(String corr, String contra) {
+        try(Connection conn = sql2o.open()){
+            Empresa v1 = conn.createQuery("SELECT * FROM Empresa WHERE Correo = :corr AND Contrasenia = :contra")
+            .addParameter("corr",corr)
+            .addParameter("contra",contra)
+            .executeAndFetchFirst(Empresa.class);
+            if (v1 != null){
+                return v1;  
             }else{
                 return null;
             }

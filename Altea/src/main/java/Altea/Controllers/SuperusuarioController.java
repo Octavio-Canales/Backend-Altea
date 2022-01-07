@@ -35,6 +35,11 @@ public class SuperusuarioController {
         return superusuarioRepository.createSuperusuario(superusuario);
     }
 
+    @GetMapping("/superusuarios/{Correo}/{Contrasenia}")
+    public Superusuario Login2(@PathVariable (value = "Correo") String corr, @PathVariable (value = "Contrasenia") String contra){
+        return superusuarioRepository.Login2(corr, contra);
+    }
+
     @DeleteMapping("/superusuario/{id}")
     public ResponseEntity<Superusuario> deleteSuperusuario(@PathVariable (value = "id") Long id){
         superusuarioRepository.deleteSuperusuario(id);

@@ -1,24 +1,18 @@
 package Altea.Models;
 
 public class Empresa {
-    private Long id;
+    private int id;
     private String Nombre;
     private String Correo;
     private String Contrasenia;
     private int loginToken;
 
-    public Empresa(Long id, String Nombre, String Correo, String Contrasenia, int loginToken){
-        this.id = id;
-        this.Nombre = Nombre;
-        this.Correo = Correo;
-        this.Contrasenia = Contrasenia;
-    }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

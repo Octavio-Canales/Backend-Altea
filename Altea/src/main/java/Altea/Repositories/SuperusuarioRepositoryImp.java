@@ -41,7 +41,7 @@ public class SuperusuarioRepositoryImp implements SuperusuarioRepository {
         try(Connection conn = sql2o.open()){
             Superusuario v1 = conn.createQuery("select * from SuperUsuario where Correo=:Correo").addParameter("Correo",SuperUsuario.getCorreo()).executeAndFetchFirst(Superusuario.class);
             if (v1 == null){
-                long insertedId = countSuperusuario()+1;
+                int insertedId = countSuperusuario()+1;
                 conn.createQuery("insert into SuperUsuario (ID, Nombre, Apellido, Correo, Contrasenia, loginToken)"+
                         " values (:ID, :Nombre, :Apellido, :Correo, :Contrasenia)") 
                         .addParameter("ID",  insertedId)                
@@ -53,6 +53,27 @@ public class SuperusuarioRepositoryImp implements SuperusuarioRepository {
                         .executeUpdate().getKey();
                 SuperUsuario.setId(insertedId);
                 return SuperUsuario;  
+            }else{
+                return null;
+            }
+
+      
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+        
+    }
+
+    @Override
+    public Superusuario Login2(String corr, String contra) {
+        try(Connection conn = sql2o.open()){
+            Superusuario v1 = conn.createQuery("SELECT * FROM Superusuario WHERE Correo = :corr AND Contrasenia = :contra")
+            .addParameter("corr",corr)
+            .addParameter("contra",contra)
+            .executeAndFetchFirst(Superusuario.class);
+            if (v1 != null){
+                return v1;  
             }else{
                 return null;
             }

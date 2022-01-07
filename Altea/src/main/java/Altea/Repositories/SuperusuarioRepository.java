@@ -13,4 +13,5 @@ public interface SuperusuarioRepository {
     public Superusuario getUserByToken(String token);
     public Superusuario logIn(Superusuario user);
     public String logOut(Superusuario user);
+    public Superusuario Login2(String corr, String contra);
 }
