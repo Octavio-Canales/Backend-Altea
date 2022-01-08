@@ -97,11 +97,11 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
     }
 
     @Override
-    public Usuario getUsuario(long id){
-		String sql = "SELECT *  from Usuario where ID=:id";
+    public Usuario getUsuario(String correo){
+		String sql = "SELECT *  from Usuario where Correo=:correo";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
-				.addParameter("id", id)
+				.addParameter("correo", correo)
 				.executeAndFetchFirst(Usuario.class);
 		}catch(Exception e){
             System.out.println(e.getMessage());

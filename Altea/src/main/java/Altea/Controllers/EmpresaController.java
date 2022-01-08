@@ -26,9 +26,9 @@ public class EmpresaController {
         return empresaRepository.getAllEmpresa();
     }
 
-    @GetMapping("/empresas/{id}")
-    public Empresa getEmpresa(@PathVariable(value="id") Long id){
-        return empresaRepository.getEmpresa(id);
+    @GetMapping("/empresas/{correo}")
+    public Empresa getEmpresa(@PathVariable(value="correo") String correo){
+        return empresaRepository.getEmpresa(correo);
     }
 
     @GetMapping("/empresas/{Correo}/{Contrasenia}")

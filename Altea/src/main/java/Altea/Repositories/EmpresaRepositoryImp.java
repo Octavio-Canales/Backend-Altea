@@ -99,11 +99,11 @@ public class EmpresaRepositoryImp implements EmpresaRepository {
     }
 
     @Override
-    public Empresa getEmpresa(long id){
-		String sql = "SELECT * from Empresa where ID=:id";
+    public Empresa getEmpresa(String correo){
+		String sql = "SELECT * from Empresa where Correo=:correo";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
-				.addParameter("id", id)
+				.addParameter("correo", correo)
 				.executeAndFetchFirst(Empresa.class);
 		}catch(Exception e){
             System.out.println(e.getMessage());

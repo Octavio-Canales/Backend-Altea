@@ -7,7 +7,7 @@ public interface UsuarioRepository {
     public int countUsuario();
     public List<Usuario> getAllUsuario();
     public boolean deleteUsuario(long id);
-    public Usuario getUsuario(long id);
+    public Usuario getUsuario(String correo);
     public boolean updateUsuario(Usuario nuevoUsuario);
     public Usuario getUserByToken(String token);
     public Usuario logIn(Usuario user);

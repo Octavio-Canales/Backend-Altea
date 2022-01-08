@@ -8,7 +8,7 @@ public interface SuperusuarioRepository {
     public List<Superusuario> getAllSuperusuario();
     public Superusuario createSuperusuario(Superusuario superusuario);
     public boolean deleteSuperusuario(long id);
-    public Superusuario getSuperusuario(long id);
+    public Superusuario getSuperusuario(String correo);
     public boolean updateSuperusuario(Superusuario nuevoSuperusuario);
     public Superusuario getUserByToken(String token);
     public Superusuario logIn(Superusuario user);

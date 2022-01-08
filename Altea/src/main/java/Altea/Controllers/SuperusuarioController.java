@@ -25,9 +25,9 @@ public class SuperusuarioController {
         return superusuarioRepository.getAllSuperusuario();
     }
 
-    @GetMapping("/superusuarios/{id}")
-    public Superusuario getSuperusuario(@PathVariable(value="id") Long id){
-        return superusuarioRepository.getSuperusuario(id);
+    @GetMapping("/superusuarios/{correo}")
+    public Superusuario getSuperusuario(@PathVariable(value="correo") String correo){
+        return superusuarioRepository.getSuperusuario(correo);
     }
 
     @PostMapping("/superusuarios")

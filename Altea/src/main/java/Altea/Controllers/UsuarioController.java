@@ -30,9 +30,9 @@ public class UsuarioController {
         return usuarioRepository.Login2(corr, contra);
     }
 
-    @GetMapping("/usuarios/{id}")
-    public Usuario getUsuario(@PathVariable(value="id") Long id){
-        return usuarioRepository.getUsuario(id);
+    @GetMapping("/usuarios/{correo}")
+    public Usuario getUsuario(@PathVariable(value="correo") String correo){
+        return usuarioRepository.getUsuario(correo);
     }
 
     @PostMapping("/usuarios")

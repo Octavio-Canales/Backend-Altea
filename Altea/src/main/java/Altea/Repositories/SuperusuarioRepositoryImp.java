@@ -100,11 +100,11 @@ public class SuperusuarioRepositoryImp implements SuperusuarioRepository {
     }
 
     @Override
-    public Superusuario getSuperusuario(long id){
-		String sql = "SELECT * from Superusuario where ID=:ID";
+    public Superusuario getSuperusuario(String correo){
+		String sql = "SELECT * from Superusuario where Correo=:correo";
 		try (Connection con = sql2o.open()) {
 			return con.createQuery(sql)
-				.addParameter("ID", id)
+				.addParameter("correo", correo)
 				.executeAndFetchFirst(Superusuario.class);
 		}catch(Exception e){
             System.out.println(e.getMessage());
